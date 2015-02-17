@@ -1,0 +1,1 @@
+# Xamarin.IQKeyboardManager.Component details

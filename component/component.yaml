@@ -1,0 +1,21 @@
+%YAML 1.2
+---
+name: IQKeyboard Manager
+id: Xamarin.IQKeyboardManager.Component
+publisher: Eight-Bot, Inc.
+license: License.md
+icons: 
+  - Xamarin.IQKeyboardManager.Component_128x128.png
+  - Xamarin.IQKeyboardManager.Component_512x512.png
+publisher-url: https://github.com/TheEightBot/Xamarin.IQKeyboardManager
+libraries: 
+  ios: ../lib/ios/Awesome.dll
+summary: Xamarin.iOS binding for the IQKeyboardManager project
+details: Details.md
+screenshots: 
+  - screenshots/screenshot1.png
+getting-started: GettingStarted.md
+version: "1.0"
+samples: 
+  iOS Sample: ../samples/AwesomeSample/AwesomeSample.sln
+...
