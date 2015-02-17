@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{65F5257F-7B22-4EF8-B76E-BB0EF6DD3547}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Xamarin.IQKeyboardManager</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>IQKeyboardManager</AssemblyName>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Xamarin.ObjcBinding.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libIQKeyboardManager.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="libIQKeyboardManager.linkwith.cs">
+      <DependentUpon>libIQKeyboardManager.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\IQKeyboardManager.bundle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IQKeyboardManager.bundle\IQButtonBarArrowLeft%402x.png" />
+    <BundleResource Include="Resources\IQKeyboardManager.bundle\IQButtonBarArrowRight%402x.png" />
+    <BundleResource Include="Resources\IQKeyboardManager.bundle\de.lproj\IQKeyboardManager.strings" />
+    <BundleResource Include="Resources\IQKeyboardManager.bundle\en.lproj\IQKeyboardManager.strings" />
+    <BundleResource Include="Resources\IQKeyboardManager.bundle\es.lproj\IQKeyboardManager.strings" />
+    <BundleResource Include="Resources\IQKeyboardManager.bundle\zh-Hans\IQKeyboardManager.strings" />
+    <BundleResource Include="Resources\IQKeyboardManager.bundle\zh-Hant\IQKeyboardManager.strings" />
+  </ItemGroup>
+</Project>
