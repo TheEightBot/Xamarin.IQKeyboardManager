@@ -3,6 +3,7 @@ using System.Drawing;
 
 using Foundation;
 using UIKit;
+using Xamarin;
 
 namespace IQKeyboardManager.Sample
 {
@@ -28,6 +29,10 @@ namespace IQKeyboardManager.Sample
 			
 			// Perform any additional setup after loading the view, typically from a nib.
 			Xamarin.IQKeyboardManager.SharedManager.EnableAutoToolbar = true;
+
+			//var obj = new NSObject ();
+			//var desc = obj.GetIQDescription ();
+
 		}
 
 		public override void ViewWillAppear (bool animated)

@@ -150,6 +150,3 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
-PDRMobile.iOS/PDRMobile.iOS.csproj
-
-PDRMobile.Droid/Resources/drawable-xxhdpi/PDR_Filter.png

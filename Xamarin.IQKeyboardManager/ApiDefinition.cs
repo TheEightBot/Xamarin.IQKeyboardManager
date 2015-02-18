@@ -308,13 +308,15 @@ namespace Xamarin {
 	}
 
 	// @interface IQ_Logging (NSObject)
-	[Protocol]
+	[Category]
 	[BaseType (typeof (NSObject))]
+	[Preserve]
 	interface IQ_Logging {
 
 		// @property (readonly, copy, nonatomic) NSString * _IQDescription;
 		[Export ("_IQDescription")]
-		string _IQDescription { get; }
+		[Preserve]
+		string GetIQDescription ();
 	}
 
 	// @interface IQToolbarAddition (UIView)
