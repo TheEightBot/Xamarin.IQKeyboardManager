@@ -26,13 +26,9 @@ namespace IQKeyboardManager.Sample
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
-			// Perform any additional setup after loading the view, typically from a nib.
+
 			Xamarin.IQKeyboardManager.SharedManager.EnableAutoToolbar = true;
-
-			//var obj = new NSObject ();
-			//var desc = obj.GetIQDescription ();
-
+			Xamarin.IQKeyboardManager.SharedManager.ShouldResignOnTouchOutside = true;
 		}
 
 		public override void ViewWillAppear (bool animated)
