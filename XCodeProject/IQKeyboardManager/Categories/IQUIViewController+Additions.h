@@ -1,5 +1,5 @@
 //
-//  IQBarButtonItem.h
+//  IQUIViewController+Additions.h
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-15 Iftekhar Qurashi.
 //
@@ -21,12 +21,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import <UIKit/UIKit.h>
 
-#import <UIKit/UIBarButtonItem.h>
+@interface UIViewController (Additions)
 
 /**
- IQBarButtonItem used for IQToolbar.
+ Top/Bottom Layout constraint which help library to manage keyboardTextField distance
  */
-@interface IQBarButtonItem : UIBarButtonItem
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *IQLayoutGuideConstraint;
 
 @end

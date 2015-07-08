@@ -1,5 +1,5 @@
 //
-//  IQBarButtonItem.h
+//  IQUIViewController+Additions.m
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-15 Iftekhar Qurashi.
 //
@@ -21,12 +21,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import "IQUIViewController+Additions.h"
+#import <objc/runtime.h>
 
-#import <UIKit/UIBarButtonItem.h>
+@implementation UIViewController (Additions)
 
-/**
- IQBarButtonItem used for IQToolbar.
- */
-@interface IQBarButtonItem : UIBarButtonItem
+-(void)setIQLayoutGuideConstraint:(NSLayoutConstraint *)IQLayoutGuideConstraint
+{
+    objc_setAssociatedObject(self, @selector(IQLayoutGuideConstraint), IQLayoutGuideConstraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSLayoutConstraint *)IQLayoutGuideConstraint
+{
+    return objc_getAssociatedObject(self, @selector(IQLayoutGuideConstraint));
+}
 
 @end

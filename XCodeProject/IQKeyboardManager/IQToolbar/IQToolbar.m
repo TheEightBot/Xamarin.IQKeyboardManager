@@ -1,7 +1,7 @@
 //
 //  IQToolbar.m
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-14 Iftekhar Qurashi.
+// Copyright (c) 2013-15 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,19 +28,28 @@
 
 #import <UIKit/UIViewController.h>
 
+#if !(__has_feature(objc_instancetype))
+    #define instancetype id
+#endif
+
+
 @implementation IQToolbar
 @synthesize titleFont = _titleFont;
+@synthesize title = _title;
 
 +(void)initialize
 {
     [super initialize];
     
     [[self appearance] setTintColor:nil];
+    
+#ifdef NSFoundationVersionNumber_iOS_6_1
     if ([[self appearance] respondsToSelector:@selector(setBarTintColor:)])
     {
         [[self appearance] setBarTintColor:nil];
     }
-
+#endif
+    
     [[self appearance] setBackgroundColor:nil];
 }
 

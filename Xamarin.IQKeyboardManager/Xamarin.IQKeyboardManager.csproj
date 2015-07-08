@@ -8,9 +8,9 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Xamarin.IQKeyboardManager</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>IQKeyboardManager</AssemblyName>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +22,8 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>IQKeyboardManager</AssemblyName>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -31,6 +33,20 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>IQKeyboardManager</AssemblyName>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc - Internal|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\AD-Hoc : Internal</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyName>Xamarin.IQKeyboardManager</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc - Internal|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\AD-Hoc - Internal</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyName>Xamarin.IQKeyboardManager</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,9 +62,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,5 +75,11 @@
     <BundleResource Include="Resources\IQKeyboardManager.bundle\es.lproj\IQKeyboardManager.strings" />
     <BundleResource Include="Resources\IQKeyboardManager.bundle\zh-Hans\IQKeyboardManager.strings" />
     <BundleResource Include="Resources\IQKeyboardManager.bundle\zh-Hant\IQKeyboardManager.strings" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="Binding.cs" />
   </ItemGroup>
 </Project>

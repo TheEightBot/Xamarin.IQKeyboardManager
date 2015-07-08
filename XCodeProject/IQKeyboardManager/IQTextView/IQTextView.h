@@ -1,7 +1,7 @@
 //
 //  IQTextView.h
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-14 Iftekhar Qurashi.
+// Copyright (c) 2013-15 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,17 +25,13 @@
 
 #import <UIKit/UITextView.h>
 
-/*!
-    @class IQTextView
- 
-    @abstract UITextView with placeholder support
+/**
+ UITextView with placeholder support
  */
 @interface IQTextView : UITextView
 
-/*!
-    @property placeholder
- 
-    @abstract To set textView's placeholder text. Default is ni.
+/**
+ Set textView's placeholder text. Default is nil.
  */
 @property(nonatomic,copy)   NSString    *placeholder;
 

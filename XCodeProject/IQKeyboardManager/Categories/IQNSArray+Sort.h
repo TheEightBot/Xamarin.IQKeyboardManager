@@ -1,7 +1,7 @@
 //
 //  NSArray+Sort.h
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-14 Iftekhar Qurashi.
+// Copyright (c) 2013-15 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,24 +23,22 @@
 
 #import <Foundation/NSArray.h>
 
-/*!
-    @category NSArray (IQ_NSArray_Sort)
- 
-	@abstract UIView.subviews sorting category.
+/**
+ UIView.subviews sorting category.
  */
 @interface NSArray (IQ_NSArray_Sort)
 
-/*!
-    @method sortedArrayByTag
- 
-    @return Returns the array by sorting the UIView's by their tag property.
+///--------------
+/// @name Sorting
+///--------------
+
+/**
+ Returns the array by sorting the UIView's by their tag property.
  */
 - (NSArray*)sortedArrayByTag;
 
-/*!
-    @method sortedArrayByTag
- 
-    @return Returns the array by sorting the UIView's by their tag property.
+/**
+ Returns the array by sorting the UIView's by their tag property.
  */
 - (NSArray*)sortedArrayByPosition;
 

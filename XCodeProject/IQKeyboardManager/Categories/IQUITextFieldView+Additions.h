@@ -1,5 +1,5 @@
 //
-//  IQBarButtonItem.h
+//  IQUITextFieldView+Additions.h
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-15 Iftekhar Qurashi.
 //
@@ -21,12 +21,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
-#import <UIKit/UIBarButtonItem.h>
+#import <UIKit/UIKit.h>
 
 /**
- IQBarButtonItem used for IQToolbar.
+ UIView category for managing UITextField/UITextView
  */
-@interface IQBarButtonItem : UIBarButtonItem
+
+@interface UIView (Additions)
+
+/**
+ To set customized distance from keyboard for textField/textView. Can't be less than zero
+ */
+@property(nonatomic, assign) CGFloat keyboardDistanceFromTextField;
 
 @end
+
+///-------------------------------------------
+/// @name Custom KeyboardDistanceFromTextField
+///-------------------------------------------
+
+/**
+ Uses default keyboard distance for textField.
+ */
+extern CGFloat const kIQUseDefaultKeyboardDistance;

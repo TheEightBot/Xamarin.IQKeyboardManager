@@ -1,7 +1,7 @@
 //
 //  UIWindow+Hierarchy.m
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-14 Iftekhar Qurashi.
+// Copyright (c) 2013-15 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,12 +22,7 @@
 // THE SOFTWARE.
 
 #import "IQUIWindow+Hierarchy.h"
-
 #import <UIKit/UINavigationController.h>
-
-#import "IQKeyboardManagerConstantsInternal.h"
-IQ_LoadCategory(IQUIWindowHierarchy)
-
 
 @implementation UIWindow (IQ_UIWindow_Hierarchy)
 

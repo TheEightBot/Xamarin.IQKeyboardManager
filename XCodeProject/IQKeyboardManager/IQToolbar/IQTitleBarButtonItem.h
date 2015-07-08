@@ -1,7 +1,7 @@
 //
 //  IQTitleBarButtonItem.h
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-14 Iftekhar Qurashi.
+// Copyright (c) 2013-15 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,19 +24,28 @@
 #import <Foundation/NSObjCRuntime.h>
 #import "IQKeyboardManagerConstants.h"
 #import "IQBarButtonItem.h"
-/*!
-    @author Iftekhar Qurashi
- 
-	@related hack.iftekhar@gmail.com
- 
-    @class IQTitleBarButtonItem
- 
-	@abstract BarButtonItem with title text.
+
+#if !(__has_feature(objc_instancetype))
+    #define instancetype id
+#endif
+
+
+/**
+ BarButtonItem with title text.
  */
 @interface IQTitleBarButtonItem : IQBarButtonItem
 
-@property(nonatomic, strong) UIFont *font;  //Default is (system font 12.0 bold)
+/**
+ Font to be used in bar button. Default is (system font 12.0 bold).
+ */
+@property(nonatomic, strong) UIFont *font;
 
+/**
+ Initialize with frame and title.
+ 
+ @param frame Initial frame of barButtonItem
+ @param title Title of barButtonItem.
+ */
 -(instancetype)initWithFrame:(CGRect)frame title:(NSString *)title NS_DESIGNATED_INITIALIZER;
 
 @end

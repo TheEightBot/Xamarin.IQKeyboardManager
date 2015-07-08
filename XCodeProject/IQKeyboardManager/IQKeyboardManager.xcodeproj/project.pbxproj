@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4117F55E1B4D619F004EA305 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4117F55D1B4D619F004EA305 /* IQUITextFieldView+Additions.m */; };
+		4117F5611B4D61B1004EA305 /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4117F5601B4D61B1004EA305 /* IQUIViewController+Additions.m */; };
 		417B2B081A92BF520030271B /* libIQKeyboardManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 417B2AFC1A92BF520030271B /* libIQKeyboardManager.a */; };
 		417B2B361A92BF7D0030271B /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 417B2B181A92BF7D0030271B /* IQNSArray+Sort.m */; };
 		417B2B371A92BF7D0030271B /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 417B2B1A1A92BF7D0030271B /* IQUIView+Hierarchy.m */; };
@@ -44,6 +46,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4117F55C1B4D619F004EA305 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
+		4117F55D1B4D619F004EA305 /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
+		4117F55F1B4D61B1004EA305 /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		4117F5601B4D61B1004EA305 /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIViewController+Additions.m"; sourceTree = "<group>"; };
 		417B2AFC1A92BF520030271B /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		417B2B071A92BF520030271B /* IQKeyboardManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IQKeyboardManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		417B2B0D1A92BF520030271B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +155,10 @@
 		417B2B161A92BF7D0030271B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				4117F55C1B4D619F004EA305 /* IQUITextFieldView+Additions.h */,
+				4117F55D1B4D619F004EA305 /* IQUITextFieldView+Additions.m */,
+				4117F55F1B4D61B1004EA305 /* IQUIViewController+Additions.h */,
+				4117F5601B4D61B1004EA305 /* IQUIViewController+Additions.m */,
 				417B2B171A92BF7D0030271B /* IQNSArray+Sort.h */,
 				417B2B181A92BF7D0030271B /* IQNSArray+Sort.m */,
 				417B2B191A92BF7D0030271B /* IQUIView+Hierarchy.h */,
@@ -304,11 +314,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				417B2B3A1A92BF7D0030271B /* IQKeyboardReturnKeyHandler.m in Sources */,
+				4117F5611B4D61B1004EA305 /* IQUIViewController+Additions.m in Sources */,
 				417B2B391A92BF7D0030271B /* IQKeyboardManager.m in Sources */,
 				417B2B3B1A92BF7D0030271B /* IQSegmentedNextPrevious.m in Sources */,
 				417B2B401A92BF7D0030271B /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				417B2B381A92BF7D0030271B /* IQUIWindow+Hierarchy.m in Sources */,
 				417B2B3E1A92BF7D0030271B /* IQTitleBarButtonItem.m in Sources */,
+				4117F55E1B4D619F004EA305 /* IQUITextFieldView+Additions.m in Sources */,
 				417B2B3F1A92BF7D0030271B /* IQToolbar.m in Sources */,
 				417B2B371A92BF7D0030271B /* IQUIView+Hierarchy.m in Sources */,
 				417B2B361A92BF7D0030271B /* IQNSArray+Sort.m in Sources */,
@@ -412,10 +424,11 @@
 		417B2B111A92BF520030271B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Stonis (R52XGKRU6T)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "56b8b602-f70a-4a0c-ab26-aeccb84b6231";
+				PROVISIONING_PROFILE = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -423,11 +436,12 @@
 		417B2B121A92BF520030271B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Michael Stonis (35V95A4C8S)";
-				ONLY_ACTIVE_ARCH = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "56b8b602-f70a-4a0c-ab26-aeccb84b6231";
+				PROVISIONING_PROFILE = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

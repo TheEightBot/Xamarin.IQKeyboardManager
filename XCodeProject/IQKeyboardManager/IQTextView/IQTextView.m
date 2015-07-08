@@ -1,7 +1,7 @@
 //
 //  IQTextView.m
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-14 Iftekhar Qurashi.
+// Copyright (c) 2013-15 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,22 @@
 #import "IQTextView.h"
 
 #import <UIKit/UILabel.h>
+#import <UIKit/UINibLoading.h>
+
+#if !(__has_feature(objc_instancetype))
+    #define instancetype id
+#endif
+
+//Xcode 4.5 compatibility check
+#ifndef NSFoundationVersionNumber_iOS_5_1
+    #define NSLineBreakByWordWrapping UILineBreakModeWordWrap
+#endif
+
+@interface IQTextView ()
+
+-(void)refreshPlaceholder;
+
+@end
 
 @implementation IQTextView
 {
@@ -31,6 +47,31 @@
 }
 
 @synthesize placeholder = _placeholder;
+
+-(void)initialize
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshPlaceholder) name:UITextViewTextDidChangeNotification object:self];
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self initialize];
+    }
+    return self;
+}
+
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self initialize];
+}
 
 -(void)refreshPlaceholder
 {
@@ -42,6 +83,9 @@
     {
         [placeHolderLabel setAlpha:1];
     }
+    
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (void)setText:(NSString *)text
@@ -54,6 +98,17 @@
 {
     [super setFont:font];
     placeHolderLabel.font = self.font;
+    
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    [placeHolderLabel sizeToFit];
+    placeHolderLabel.frame = CGRectMake(8, 8, CGRectGetWidth(self.frame)-16, CGRectGetHeight(placeHolderLabel.frame));
 }
 
 -(void)setPlaceholder:(NSString *)placeholder
@@ -62,7 +117,7 @@
     
     if ( placeHolderLabel == nil )
     {
-        placeHolderLabel = [[UILabel alloc] initWithFrame:CGRectInset(self.bounds, 8, 8)];
+        placeHolderLabel = [[UILabel alloc] init];
         placeHolderLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
         placeHolderLabel.lineBreakMode = NSLineBreakByWordWrapping;
         placeHolderLabel.numberOfLines = 0;
