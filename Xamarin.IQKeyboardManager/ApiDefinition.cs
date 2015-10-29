@@ -38,7 +38,7 @@ namespace Xamarin {
 		IQAutoToolbarManageBehaviour ToolbarManageBehaviour { get; set; }
 
 		// @property (assign, nonatomic) BOOL shouldToolbarUsesTextFieldTintColor;
-		[iOS (7,0)]
+		[Introduced(PlatformName.iOS, 7, 0)]
 		[Export ("shouldToolbarUsesTextFieldTintColor", ArgumentSemantic.UnsafeUnretained)]
 		bool ShouldToolbarUsesTextFieldTintColor { get; set; }
 
@@ -86,8 +86,8 @@ namespace Xamarin {
 		[Export ("resignFirstResponder")]
 		void ResignFirstResponder ();
 
-		// +(instancetype)new;
-		[Availability (Unavailable = Platform.iOS_Version | Platform.Mac_Version)]
+		[Unavailable(PlatformName.iOS)]
+		[Unavailable(PlatformName.MacOSX)]
 		[Static, Export ("new")]
 		IQKeyboardManager New ();
 	}
@@ -136,7 +136,7 @@ namespace Xamarin {
 	}
 
 	// @interface IQSegmentedNextPrevious : UISegmentedControl
-	[Availability (Introduced = Platform.iOS_2_0, Deprecated = Platform.iOS_7_0)]
+	[Deprecated(PlatformName.iOS, 7, 0)]
 	[BaseType (typeof (UISegmentedControl))]
 	[DisableDefaultCtor]
 	interface IQSegmentedNextPrevious {
@@ -146,7 +146,8 @@ namespace Xamarin {
 		IntPtr Constructor (NSObject target, Selector previousAction, Selector nextAction);
 
 		// +(instancetype)new;
-		[Availability (Unavailable = Platform.iOS_Version | Platform.Mac_Version)]
+		[Unavailable(PlatformName.iOS)]
+		[Unavailable(PlatformName.MacOSX)]
 		[Static, Export ("new")]
 		IQSegmentedNextPrevious New ();
 	}
@@ -212,7 +213,7 @@ namespace Xamarin {
 		UITableView SuperTableView { get; }
 
 		// @property (readonly, nonatomic, strong) UICollectionView * superCollectionView;
-		[iOS (6,0)]
+		[Introduced(PlatformName.iOS, 6, 0)]
 		[Export ("superCollectionView", ArgumentSemantic.Retain)]
 		UICollectionView SuperCollectionView { get; }
 

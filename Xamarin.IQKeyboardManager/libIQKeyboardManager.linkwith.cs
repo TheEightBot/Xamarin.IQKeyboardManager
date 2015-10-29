@@ -1,5 +1,6 @@
 using System;
 using ObjCRuntime;
+using Foundation;
 
 [assembly: LinkWith (
 	"libIQKeyboardManager.a", 
@@ -7,3 +8,4 @@ using ObjCRuntime;
 //TODO: Why u dumb link only for devices?
 //	SmartLink = true, 
 	ForceLoad = true)]
+[assembly: LinkerSafe ]
