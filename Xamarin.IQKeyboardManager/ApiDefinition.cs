@@ -1,434 +1,435 @@
-using UIKit;
-using Foundation;
-using ObjCRuntime;
 using System;
 using CoreGraphics;
+using Foundation;
+using ObjCRuntime;
+using UIKit;
 
-namespace Xamarin {
+namespace Xamarin
+{
 
 	// @interface IQBarButtonItem : UIBarButtonItem
-	[BaseType (typeof (UIBarButtonItem))]
-	interface IQBarButtonItem {
+	[BaseType (typeof(UIBarButtonItem))]
+	interface IQBarButtonItem
+	{
+	}
+
+	//[Static]
+	partial interface Constants
+	{
+		[Field ("kIQDoneButtonToolbarTag", "__Internal")]
+		nint kIQDoneButtonToolbarTag { get; }
+
+		[Field ("kIQPreviousNextButtonToolbarTag", "__Internal")]
+		nint kIQPreviousNextButtonToolbarTag { get; }
 
 	}
 
-	// @interface IQKeyboardManager : NSObject
-	[BaseType (typeof (NSObject))]
+	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
-	interface IQKeyboardManager {
-
-		// @property (assign, nonatomic, getter = isEnabled) BOOL enable;
-		[Export ("enable", ArgumentSemantic.UnsafeUnretained)]
-		bool Enable { [Bind ("isEnabled")] get; set; }
-
-		// @property (assign, nonatomic) CGFloat keyboardDistanceFromTextField;
-		[Export ("keyboardDistanceFromTextField", ArgumentSemantic.UnsafeUnretained)]
-		nfloat KeyboardDistanceFromTextField { get; set; }
-
-		// @property (assign, nonatomic) BOOL preventShowingBottomBlankSpace;
-		[Export ("preventShowingBottomBlankSpace", ArgumentSemantic.UnsafeUnretained)]
-		bool PreventShowingBottomBlankSpace { get; set; }
-
-		// @property (assign, nonatomic, getter = isEnableAutoToolbar) BOOL enableAutoToolbar;
-		[Export ("enableAutoToolbar", ArgumentSemantic.UnsafeUnretained)]
-		bool EnableAutoToolbar { [Bind ("isEnableAutoToolbar")] get; set; }
-
-		// @property (assign, nonatomic) IQAutoToolbarManageBehaviour toolbarManageBehaviour;
-		[Export ("toolbarManageBehaviour", ArgumentSemantic.UnsafeUnretained)]
-		IQAutoToolbarManageBehaviour ToolbarManageBehaviour { get; set; }
-
-		// @property (assign, nonatomic) BOOL shouldToolbarUsesTextFieldTintColor;
-		[Introduced(PlatformName.iOS, 7, 0)]
-		[Export ("shouldToolbarUsesTextFieldTintColor", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldToolbarUsesTextFieldTintColor { get; set; }
-
-		// @property (assign, nonatomic) BOOL shouldShowTextFieldPlaceholder;
-		[Export ("shouldShowTextFieldPlaceholder", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldShowTextFieldPlaceholder { get; set; }
-
-		// @property (nonatomic, strong) UIFont * placeholderFont;
-		[Export ("placeholderFont", ArgumentSemantic.Retain)]
-		UIFont PlaceholderFont { get; set; }
-
-		// @property (assign, nonatomic) BOOL canAdjustTextView;
-		[Export ("canAdjustTextView", ArgumentSemantic.UnsafeUnretained)]
-		bool CanAdjustTextView { get; set; }
-
-		// @property (assign, nonatomic) BOOL shouldFixTextViewClip;
-		[Export ("shouldFixTextViewClip", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldFixTextViewClip { get; set; }
-
-		// @property (assign, nonatomic) BOOL overrideKeyboardAppearance;
-		[Export ("overrideKeyboardAppearance", ArgumentSemantic.UnsafeUnretained)]
-		bool OverrideKeyboardAppearance { get; set; }
-
-		// @property (assign, nonatomic) UIKeyboardAppearance keyboardAppearance;
-		[Export ("keyboardAppearance", ArgumentSemantic.UnsafeUnretained)]
-		UIKeyboardAppearance KeyboardAppearance { get; set; }
-
-		// @property (assign, nonatomic) BOOL shouldResignOnTouchOutside;
-		[Export ("shouldResignOnTouchOutside", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldResignOnTouchOutside { get; set; }
-
-		// @property (assign, nonatomic) BOOL shouldPlayInputClicks;
-		[Export ("shouldPlayInputClicks", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldPlayInputClicks { get; set; }
-
-		// @property (assign, nonatomic) BOOL shouldAdoptDefaultKeyboardAnimation;
-		[Export ("shouldAdoptDefaultKeyboardAnimation", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldAdoptDefaultKeyboardAnimation { get; set; }
-
-		// +(instancetype)sharedManager;
-		[Static, Export ("sharedManager")]
+	interface IQKeyboardManager
+	{
+		[Static]
+		[Export ("sharedManager")]
 		IQKeyboardManager SharedManager { get; }
 
-		// -(void)resignFirstResponder;
-		[Export ("resignFirstResponder")]
-		void ResignFirstResponder ();
+		[Export ("enable")]
+		bool Enable { [Bind ("isEnabled")] get; set; }
 
-		[Unavailable(PlatformName.iOS)]
-		[Unavailable(PlatformName.MacOSX)]
-		[Static, Export ("new")]
-		IQKeyboardManager New ();
-	}
+		[Export ("keyboardDistanceFromTextField")]
+		nfloat KeyboardDistanceFromTextField { get; set; }
 
-	// @interface IQKeyboardReturnKeyHandler : NSObject
-	[BaseType (typeof (NSObject))]
-	interface IQKeyboardReturnKeyHandler {
+		[Export ("preventShowingBottomBlankSpace")]
+		bool PreventShowingBottomBlankSpace { get; set; }
 
-		// -(instancetype)initWithViewController:(UIViewController *)controller;
-		[Export ("initWithViewController:")]
-		IntPtr Constructor (UIViewController controller);
+		[Export ("enableAutoToolbar")]
+		bool EnableAutoToolbar { [Bind ("isEnableAutoToolbar")] get; set; }
 
-		// @property (nonatomic, weak) id<UITextFieldDelegate,UITextViewDelegate> delegate;
-		[Export ("delegate", ArgumentSemantic.Weak)]
-		[NullAllowed]
-		NSObject WeakDelegate { get; set; }
-
-		//TODO: Implement
-//		// @property (nonatomic, weak) id<UITextFieldDelegate,UITextViewDelegate> delegate;
-//		[Wrap ("WeakDelegate")]
-//		NSObject<UITextFieldDelegate, UITextViewDelegate> Delegate { get; set; }
-//
-		// @property (assign, nonatomic) IQAutoToolbarManageBehaviour toolbarManageBehaviour;
-		[Export ("toolbarManageBehaviour", ArgumentSemantic.UnsafeUnretained)]
+		[Export ("toolbarManageBehaviour", ArgumentSemantic.Assign)]
 		IQAutoToolbarManageBehaviour ToolbarManageBehaviour { get; set; }
 
-		// @property (assign, nonatomic) UIReturnKeyType lastTextFieldReturnKeyType;
-		[Export ("lastTextFieldReturnKeyType", ArgumentSemantic.UnsafeUnretained)]
+		[Export ("shouldToolbarUsesTextFieldTintColor")]
+		bool ShouldToolbarUsesTextFieldTintColor { get; set; }
+
+		[Export ("shouldShowTextFieldPlaceholder")]
+		bool ShouldShowTextFieldPlaceholder { get; set; }
+
+		[NullAllowed, Export ("placeholderFont", ArgumentSemantic.Strong)]
+		UIFont PlaceholderFont { get; set; }
+
+		[Export ("canAdjustTextView")]
+		bool CanAdjustTextView { get; set; }
+
+		[Export ("shouldFixTextViewClip")]
+		bool ShouldFixTextViewClip { get; set; }
+
+		[Export ("overrideKeyboardAppearance")]
+		bool OverrideKeyboardAppearance { get; set; }
+
+		[Export ("keyboardAppearance", ArgumentSemantic.Assign)]
+		UIKeyboardAppearance KeyboardAppearance { get; set; }
+
+		[Export ("shouldResignOnTouchOutside")]
+		bool ShouldResignOnTouchOutside { get; set; }
+
+		[Export ("resignFirstResponder")]
+		bool ResignFirstResponder ();
+
+		[Export ("canGoPrevious")]
+		bool CanGoPrevious { get; }
+
+		[Export ("canGoNext")]
+		bool CanGoNext { get; }
+
+		[Export ("goPrevious")]
+		bool GoPrevious ();
+
+		[Export ("goNext")]
+		bool GoNext ();
+
+		[Export ("shouldRestoreScrollViewContentOffset")]
+		bool ShouldRestoreScrollViewContentOffset { get; set; }
+
+		[Export ("shouldPlayInputClicks")]
+		bool ShouldPlayInputClicks { get; set; }
+
+		[Export ("shouldAdoptDefaultKeyboardAnimation")]
+		bool ShouldAdoptDefaultKeyboardAnimation { get; set; }
+
+		[Export ("layoutIfNeededOnUpdate")]
+		bool LayoutIfNeededOnUpdate { get; set; }
+
+		[Export ("disableInViewControllerClass:")]
+		void DisableInViewControllerClass (Class disabledClass);
+
+		[Export ("removeDisableInViewControllerClass:")]
+		void RemoveDisableInViewControllerClass (Class disabledClass);
+
+		[Export ("isDisableInViewControllerClass:")]
+		bool IsDisableInViewControllerClass (Class disabledClass);
+
+		[Export ("disableToolbarInViewControllerClass:")]
+		void DisableToolbarInViewControllerClass (Class toolbarDisabledClass);
+
+		[Export ("removeDisableToolbarInViewControllerClass:")]
+		void RemoveDisableToolbarInViewControllerClass (Class toolbarDisabledClass);
+
+		[Export ("isDisableToolbarInViewControllerClass:")]
+		bool IsDisableToolbarInViewControllerClass (Class toolbarDisabledClass);
+
+		[Export ("considerToolbarPreviousNextInViewClass:")]
+		void ConsiderToolbarPreviousNextInViewClass (Class toolbarPreviousNextConsideredClass);
+
+		[Export ("removeConsiderToolbarPreviousNextInViewClass:")]
+		void RemoveConsiderToolbarPreviousNextInViewClass (Class toolbarPreviousNextConsideredClass);
+
+		[Export ("isConsiderToolbarPreviousNextInViewClass:")]
+		bool IsConsiderToolbarPreviousNextInViewClass (Class toolbarPreviousNextConsideredClass);
+
+	}
+
+	[BaseType (typeof(NSObject))]
+	interface IQKeyboardReturnKeyHandler
+	{
+		[Export ("initWithViewController:")]
+		[DesignatedInitializer]
+		IntPtr Constructor ([NullAllowed] UIViewController controller);
+
+		[Wrap ("WeakDelegate")]
+		[NullAllowed]
+		NSObject/*<UITextFieldDelegate, UITextViewDelegate>*/ Delegate { get; set; }
+
+		[NullAllowed, Export ("delegate", ArgumentSemantic.Weak)]
+		NSObject WeakDelegate { get; set; }
+
+		[Export ("lastTextFieldReturnKeyType", ArgumentSemantic.Assign)]
 		UIReturnKeyType LastTextFieldReturnKeyType { get; set; }
 
-		// -(void)addTextFieldView:(UIView *)textFieldView;
 		[Export ("addTextFieldView:")]
 		void AddTextFieldView (UIView textFieldView);
 
-		// -(void)removeTextFieldView:(UIView *)textFieldView;
 		[Export ("removeTextFieldView:")]
 		void RemoveTextFieldView (UIView textFieldView);
 
-		// -(void)addResponderFromView:(UIView *)view;
 		[Export ("addResponderFromView:")]
 		void AddResponderFromView (UIView view);
 
-		// -(void)removeResponderFromView:(UIView *)view;
 		[Export ("removeResponderFromView:")]
 		void RemoveResponderFromView (UIView view);
+
 	}
 
-	// @interface IQSegmentedNextPrevious : UISegmentedControl
-	[Deprecated(PlatformName.iOS, 7, 0)]
-	[BaseType (typeof (UISegmentedControl))]
+	[Category]
+	[BaseType (typeof(NSArray))]
+	interface NSArray_IQ_NSArray_Sort
+	{
+		[Export ("sortedArrayByTag")]
+		NSObject[] SortedArrayByTag ();
+
+		[Export ("sortedArrayByPosition")]
+		NSObject[] SortedArrayByPosition ();
+
+	}
+
+	[BaseType (typeof(UISegmentedControl))]
 	[DisableDefaultCtor]
-	interface IQSegmentedNextPrevious {
-
-		// -(instancetype)initWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction;
+	interface IQSegmentedNextPrevious
+	{
 		[Export ("initWithTarget:previousAction:nextAction:")]
-		IntPtr Constructor (NSObject target, Selector previousAction, Selector nextAction);
+		[DesignatedInitializer]
+		IntPtr Constructor ([NullAllowed] NSObject target, [NullAllowed] Selector previousAction, [NullAllowed] Selector nextAction);
 
-		// +(instancetype)new;
-		[Unavailable(PlatformName.iOS)]
-		[Unavailable(PlatformName.MacOSX)]
-		[Static, Export ("new")]
-		IQSegmentedNextPrevious New ();
 	}
 
-	// @interface IQTextView : UITextView
-	[BaseType (typeof (UITextView))]
-	interface IQTextView {
-
-		// @property (copy, nonatomic) NSString * placeholder;
-		[Export ("placeholder")]
+	[BaseType (typeof(UITextView))]
+	interface IQTextView
+	{
+		[NullAllowed, Export ("placeholder")]
 		string Placeholder { get; set; }
+
 	}
 
-	// @interface IQTitleBarButtonItem : IQBarButtonItem
-	[BaseType (typeof (IQBarButtonItem))]
-	interface IQTitleBarButtonItem {
-
-		// -(instancetype)initWithFrame:(CGRect)frame title:(NSString *)title;
-		[Export ("initWithFrame:title:")]
-		IntPtr Constructor (CGRect frame, string title);
-
-		// @property (nonatomic, strong) UIFont * font;
-		[Export ("font", ArgumentSemantic.Retain)]
+	[BaseType (typeof(IQBarButtonItem))]
+	[DisableDefaultCtor]
+	interface IQTitleBarButtonItem
+	{
+		[NullAllowed, Export ("font", ArgumentSemantic.Strong)]
 		UIFont Font { get; set; }
+
+		[Export ("initWithFrame:title:")]
+		[DesignatedInitializer]
+		IntPtr Constructor (CGRect frame, [NullAllowed] string title);
+
 	}
 
-	// @interface IQToolbar : UIToolbar <UIInputViewAudioFeedback>
-	[BaseType (typeof (UIToolbar))]
-	interface IQToolbar : IUIInputViewAudioFeedback {
-
-		// @property (nonatomic, strong) UIFont * titleFont;
-		[Export ("titleFont", ArgumentSemantic.Retain)]
+	[BaseType (typeof(UIToolbar))]
+	interface IQToolbar : IUIInputViewAudioFeedback
+	{
+		[NullAllowed, Export ("titleFont", ArgumentSemantic.Strong)]
 		UIFont TitleFont { get; set; }
 
-		// @property (nonatomic, strong) NSString * title;
-		[Export ("title", ArgumentSemantic.Retain)]
+		[NullAllowed, Export ("title", ArgumentSemantic.Strong)]
 		string Title { get; set; }
+
+	}
+
+	[Category]
+	[BaseType (typeof(UIView))]
+	interface UIView_Additions
+	{
+//		[Export ("keyboardDistanceFromTextField")]
+//		nfloat KeyboardDistanceFromTextField ();
+//
+//		[Export ("setKeyboardDistanceFromTextField:")]
+//		void SetKeyboardDistanceFromTextField (nfloat keyboardDistanceFromTextField);
+		// @property (assign, nonatomic) CGFloat keyboardDistanceFromTextField;
+		[Static, Export ("keyboardDistanceFromTextField")]
+		nfloat KeyboardDistanceFromTextField { get; set; }
+	}
+
+	[Static]
+	partial interface Constants
+	{
+		// extern const CGFloat kIQUseDefaultKeyboardDistance;
+		[Field ("kIQUseDefaultKeyboardDistance", "__Internal")]
+		nfloat kIQUseDefaultKeyboardDistance { get; }
 	}
 
 	// @interface IQ_UIView_Hierarchy (UIView)
-	[Protocol]
-	[BaseType (typeof (UIView))]
-	interface IQ_UIView_Hierarchy {
-
+	[Category]
+	[BaseType (typeof(UIView))]
+	interface UIView_IQ_UIView_Hierarchy
+	{
 		// @property (readonly, nonatomic) BOOL isAskingCanBecomeFirstResponder;
-		[Export ("isAskingCanBecomeFirstResponder")]
+		[Static, Export ("isAskingCanBecomeFirstResponder")]
 		bool IsAskingCanBecomeFirstResponder { get; }
 
-		// @property (readonly, nonatomic, strong) UIViewController * viewController;
-		[Export ("viewController", ArgumentSemantic.Retain)]
+		// @property (readonly, nonatomic, strong) UIViewController * _Nullable viewController;
+		[Static, NullAllowed, Export ("viewController", ArgumentSemantic.Strong)]
 		UIViewController ViewController { get; }
 
-		// @property (readonly, nonatomic, strong) UIViewController * topMostController;
-		[Export ("topMostController", ArgumentSemantic.Retain)]
+		// @property (readonly, nonatomic, strong) UIViewController * _Nullable topMostController;
+		[Static, NullAllowed, Export ("topMostController", ArgumentSemantic.Strong)]
 		UIViewController TopMostController { get; }
 
-		// @property (readonly, nonatomic, strong) UIScrollView * superScrollView;
-		[Export ("superScrollView", ArgumentSemantic.Retain)]
-		UIScrollView SuperScrollView { get; }
+		// -(UIView * _Nullable)superviewOfClassType:(Class _Nonnull)classType;
+		[Export ("superviewOfClassType:")]
+		[return: NullAllowed]
+		UIView SuperviewOfClassType (Class classType);
 
-		// @property (readonly, nonatomic, strong) UITableView * superTableView;
-		[Export ("superTableView", ArgumentSemantic.Retain)]
-		UITableView SuperTableView { get; }
+		// @property (readonly, copy, nonatomic) NSArray * _Nonnull responderSiblings;
+		[Static, Export ("responderSiblings", ArgumentSemantic.Copy)]
+		NSObject[] ResponderSiblings { get; }
 
-		// @property (readonly, nonatomic, strong) UICollectionView * superCollectionView;
-		[Introduced(PlatformName.iOS, 6, 0)]
-		[Export ("superCollectionView", ArgumentSemantic.Retain)]
-		UICollectionView SuperCollectionView { get; }
+		// @property (readonly, copy, nonatomic) NSArray * _Nonnull deepResponderViews;
+		[Static, Export ("deepResponderViews", ArgumentSemantic.Copy)]
+		NSObject[] DeepResponderViews { get; }
 
-		// @property (readonly, copy, nonatomic) NSArray * responderSiblings;
-		[Export ("responderSiblings", ArgumentSemantic.Copy)]
-		NSObject [] ResponderSiblings { get; }
-
-		// @property (readonly, copy, nonatomic) NSArray * deepResponderViews;
-		[Export ("deepResponderViews", ArgumentSemantic.Copy)]
-		NSObject [] DeepResponderViews { get; }
-
-		// @property (readonly, nonatomic, getter = isSearchBarTextField) BOOL searchBarTextField;
-		[Export ("searchBarTextField")]
+		// @property (readonly, getter = isSearchBarTextField, nonatomic) BOOL searchBarTextField;
+		[Static, Export ("searchBarTextField")]
 		bool SearchBarTextField { [Bind ("isSearchBarTextField")] get; }
 
-		// @property (readonly, nonatomic, getter = isAlertViewTextField) BOOL alertViewTextField;
-		[Export ("alertViewTextField")]
+		// @property (readonly, getter = isAlertViewTextField, nonatomic) BOOL alertViewTextField;
+		[Static, Export ("alertViewTextField")]
 		bool AlertViewTextField { [Bind ("isAlertViewTextField")] get; }
 
-		// @property (readonly, copy, nonatomic) NSString * subHierarchy;
-		[Export ("subHierarchy")]
+		// -(CGAffineTransform)convertTransformToView:(UIView * _Nullable)toView;
+		[Export ("convertTransformToView:")]
+		CGAffineTransform ConvertTransformToView ([NullAllowed] UIView toView);
+
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull subHierarchy;
+		[Static, Export ("subHierarchy")]
 		string SubHierarchy { get; }
 
-		// @property (readonly, copy, nonatomic) NSString * superHierarchy;
-		[Export ("superHierarchy")]
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull superHierarchy;
+		[Static, Export ("superHierarchy")]
 		string SuperHierarchy { get; }
 
-		// @property (readonly, copy, nonatomic) NSString * debugHierarchy;
-		[Export ("debugHierarchy")]
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull debugHierarchy;
+		[Static, Export ("debugHierarchy")]
 		string DebugHierarchy { get; }
-
-		// -(CGAffineTransform)convertTransformToView:(UIView *)toView;
-		[Export ("convertTransformToView:")]
-		CGAffineTransform ConvertTransformToView (UIView toView);
-	}
-
-	// @interface IQ_UIView_Frame (UIView)
-	[Protocol]
-	[BaseType (typeof (UIView))]
-	interface IQ_UIView_Frame {
-
-		// @property (assign, nonatomic) CGPoint IQ_origin;
-		[Export ("IQ_origin", ArgumentSemantic.UnsafeUnretained)]
-		CGPoint IQ_origin { get; set; }
-
-		// @property (assign, nonatomic) CGSize IQ_size;
-		[Export ("IQ_size", ArgumentSemantic.UnsafeUnretained)]
-		CGSize IQ_size { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_x;
-		[Export ("IQ_x", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_x { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_y;
-		[Export ("IQ_y", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_y { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_width;
-		[Export ("IQ_width", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_width { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_height;
-		[Export ("IQ_height", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_height { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_left;
-		[Export ("IQ_left", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_left { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_right;
-		[Export ("IQ_right", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_right { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_top;
-		[Export ("IQ_top", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_top { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_bottom;
-		[Export ("IQ_bottom", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_bottom { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_centerX;
-		[Export ("IQ_centerX", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_centerX { get; set; }
-
-		// @property (assign, nonatomic) CGFloat IQ_centerY;
-		[Export ("IQ_centerY", ArgumentSemantic.UnsafeUnretained)]
-		nfloat IQ_centerY { get; set; }
-
-		// @property (readonly, nonatomic) CGPoint IQ_boundsCenter;
-		[Export ("IQ_boundsCenter")]
-		CGPoint IQ_boundsCenter { get; }
 	}
 
 	// @interface IQ_Logging (NSObject)
 	[Category]
-	[BaseType (typeof (NSObject))]
-	[Preserve]
-	interface IQ_Logging {
-
-		// @property (readonly, copy, nonatomic) NSString * _IQDescription;
-		[Export ("_IQDescription")]
-		[Preserve]
-		string GetIQDescription ();
+	[BaseType (typeof(NSObject))]
+	interface NSObject_IQ_Logging
+	{
+		// @property (readonly, copy, nonatomic) NSString * _Nonnull _IQDescription;
+		[Static, Export ("_IQDescription")]
+		string IQDescription { get; }
 	}
 
 	// @interface IQToolbarAddition (UIView)
-	[Protocol]
-	[BaseType (typeof (UIView))]
-	interface IQToolbarAddition {
-
+	[Category]
+	[BaseType (typeof(UIView))]
+	interface UIView_IQToolbarAddition
+	{
 		// @property (assign, nonatomic) BOOL shouldHideTitle;
-		[Export ("shouldHideTitle", ArgumentSemantic.UnsafeUnretained)]
+		[Static, Export ("shouldHideTitle")]
 		bool ShouldHideTitle { get; set; }
 
-		// @property (nonatomic, strong) NSInvocation * previousInvocation;
-		[Export ("previousInvocation", ArgumentSemantic.Retain)]
+		// -(void)setCustomPreviousTarget:(id _Nullable)target action:(SEL _Nullable)action;
+		[Export ("setCustomPreviousTarget:action:")]
+		void SetCustomPreviousTarget ([NullAllowed] NSObject target, [NullAllowed] Selector action);
+
+		// -(void)setCustomNextTarget:(id _Nullable)target action:(SEL _Nullable)action;
+		[Export ("setCustomNextTarget:action:")]
+		void SetCustomNextTarget ([NullAllowed] NSObject target, [NullAllowed] Selector action);
+
+		// -(void)setCustomDoneTarget:(id _Nullable)target action:(SEL _Nullable)action;
+		[Export ("setCustomDoneTarget:action:")]
+		void SetCustomDoneTarget ([NullAllowed] NSObject target, [NullAllowed] Selector action);
+
+		// @property (nonatomic, strong) NSInvocation * _Nullable previousInvocation;
+		[Static, NullAllowed, Export ("previousInvocation", ArgumentSemantic.Strong)]
 		NSInvocation PreviousInvocation { get; set; }
 
-		// @property (nonatomic, strong) NSInvocation * nextInvocation;
-		[Export ("nextInvocation", ArgumentSemantic.Retain)]
+		// @property (nonatomic, strong) NSInvocation * _Nullable nextInvocation;
+		[Static, NullAllowed, Export ("nextInvocation", ArgumentSemantic.Strong)]
 		NSInvocation NextInvocation { get; set; }
 
-		// @property (nonatomic, strong) NSInvocation * doneInvocation;
-		[Export ("doneInvocation", ArgumentSemantic.Retain)]
+		// @property (nonatomic, strong) NSInvocation * _Nullable doneInvocation;
+		[Static, NullAllowed, Export ("doneInvocation", ArgumentSemantic.Strong)]
 		NSInvocation DoneInvocation { get; set; }
 
-		// -(void)setCustomPreviousTarget:(id)target action:(SEL)action;
-		[Export ("setCustomPreviousTarget:action:")]
-		void SetCustomPreviousTarget (NSObject target, Selector action);
-
-		// -(void)setCustomNextTarget:(id)target action:(SEL)action;
-		[Export ("setCustomNextTarget:action:")]
-		void SetCustomNextTarget (NSObject target, Selector action);
-
-		// -(void)setCustomDoneTarget:(id)target action:(SEL)action;
-		[Export ("setCustomDoneTarget:action:")]
-		void SetCustomDoneTarget (NSObject target, Selector action);
-
-		// -(void)addRightButtonOnKeyboardWithText:(NSString *)text target:(id)target action:(SEL)action;
-		[Export ("addRightButtonOnKeyboardWithText:target:action:")]
-		void AddRightButtonOnKeyboardWithText (string text, NSObject target, Selector action);
-
-		// -(void)addRightButtonOnKeyboardWithText:(NSString *)text target:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)showPlaceholder;
-		[Export ("addRightButtonOnKeyboardWithText:target:action:shouldShowPlaceholder:")]
-		void AddRightButtonOnKeyboardWithText (string text, NSObject target, Selector action, bool showPlaceholder);
-
-		// -(void)addRightButtonOnKeyboardWithText:(NSString *)text target:(id)target action:(SEL)action titleText:(NSString *)titleText;
-		[Export ("addRightButtonOnKeyboardWithText:target:action:titleText:")]
-		void AddRightButtonOnKeyboardWithText (string text, NSObject target, Selector action, string titleText);
-
-		// -(void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action;
+		// -(void)addDoneOnKeyboardWithTarget:(id _Nullable)target action:(SEL _Nullable)action;
 		[Export ("addDoneOnKeyboardWithTarget:action:")]
-		void AddDoneOnKeyboardWithTarget (NSObject target, Selector action);
+		void AddDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector action);
 
-		// -(void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)showPlaceholder;
-		[Export ("addDoneOnKeyboardWithTarget:action:shouldShowPlaceholder:")]
-		void AddDoneOnKeyboardWithTarget (NSObject target, Selector action, bool showPlaceholder);
-
-		// -(void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action titleText:(NSString *)titleText;
+		// -(void)addDoneOnKeyboardWithTarget:(id _Nullable)target action:(SEL _Nullable)action titleText:(NSString * _Nullable)titleText;
 		[Export ("addDoneOnKeyboardWithTarget:action:titleText:")]
-		void AddDoneOnKeyboardWithTarget (NSObject target, Selector action, string titleText);
+		void AddDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector action, [NullAllowed] string titleText);
 
-		// -(void)addRightLeftOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString *)leftTitle rightButtonTitle:(NSString *)rightTitle rightButtonAction:(SEL)rightAction leftButtonAction:(SEL)leftAction;
-		[Export ("addRightLeftOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:rightButtonAction:leftButtonAction:")]
-		void AddRightLeftOnKeyboardWithTarget (NSObject target, string leftTitle, string rightTitle, Selector rightAction, Selector leftAction);
+		// -(void)addDoneOnKeyboardWithTarget:(id _Nullable)target action:(SEL _Nullable)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder;
+		[Export ("addDoneOnKeyboardWithTarget:action:shouldShowPlaceholder:")]
+		void AddDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector action, bool shouldShowPlaceholder);
 
-		// -(void)addRightLeftOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString *)leftTitle rightButtonTitle:(NSString *)rightTitle rightButtonAction:(SEL)rightAction leftButtonAction:(SEL)leftAction shouldShowPlaceholder:(BOOL)showPlaceholder;
-		[Export ("addRightLeftOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:rightButtonAction:leftButtonAction:shouldShowPlaceholder:")]
-		void AddRightLeftOnKeyboardWithTarget (NSObject target, string leftTitle, string rightTitle, Selector rightAction, Selector leftAction, bool showPlaceholder);
+		// -(void)addRightButtonOnKeyboardWithText:(NSString * _Nullable)text target:(id _Nullable)target action:(SEL _Nullable)action;
+		[Export ("addRightButtonOnKeyboardWithText:target:action:")]
+		void AddRightButtonOnKeyboardWithText ([NullAllowed] string text, [NullAllowed] NSObject target, [NullAllowed] Selector action);
 
-		// -(void)addRightLeftOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString *)leftTitle rightButtonTitle:(NSString *)rightTitle rightButtonAction:(SEL)rightAction leftButtonAction:(SEL)leftAction titleText:(NSString *)titleText;
-		[Export ("addRightLeftOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:rightButtonAction:leftButtonAction:titleText:")]
-		void AddRightLeftOnKeyboardWithTarget (NSObject target, string leftTitle, string rightTitle, Selector rightAction, Selector leftAction, string titleText);
+		// -(void)addRightButtonOnKeyboardWithText:(NSString * _Nullable)text target:(id _Nullable)target action:(SEL _Nullable)action titleText:(NSString * _Nullable)titleText;
+		[Export ("addRightButtonOnKeyboardWithText:target:action:titleText:")]
+		void AddRightButtonOnKeyboardWithText ([NullAllowed] string text, [NullAllowed] NSObject target, [NullAllowed] Selector action, [NullAllowed] string titleText);
 
-		// -(void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction;
+		// -(void)addRightButtonOnKeyboardWithText:(NSString * _Nullable)text target:(id _Nullable)target action:(SEL _Nullable)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder;
+		[Export ("addRightButtonOnKeyboardWithText:target:action:shouldShowPlaceholder:")]
+		void AddRightButtonOnKeyboardWithText ([NullAllowed] string text, [NullAllowed] NSObject target, [NullAllowed] Selector action, bool shouldShowPlaceholder);
+
+		// -(void)addCancelDoneOnKeyboardWithTarget:(id _Nullable)target cancelAction:(SEL _Nullable)cancelAction doneAction:(SEL _Nullable)doneAction;
 		[Export ("addCancelDoneOnKeyboardWithTarget:cancelAction:doneAction:")]
-		void AddCancelDoneOnKeyboardWithTarget (NSObject target, Selector cancelAction, Selector doneAction);
+		void AddCancelDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector cancelAction, [NullAllowed] Selector doneAction);
 
-		// -(void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction shouldShowPlaceholder:(BOOL)showPlaceholder;
-		[Export ("addCancelDoneOnKeyboardWithTarget:cancelAction:doneAction:shouldShowPlaceholder:")]
-		void AddCancelDoneOnKeyboardWithTarget (NSObject target, Selector cancelAction, Selector doneAction, bool showPlaceholder);
-
-		// -(void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction titleText:(NSString *)titleText;
+		// -(void)addCancelDoneOnKeyboardWithTarget:(id _Nullable)target cancelAction:(SEL _Nullable)cancelAction doneAction:(SEL _Nullable)doneAction titleText:(NSString * _Nullable)titleText;
 		[Export ("addCancelDoneOnKeyboardWithTarget:cancelAction:doneAction:titleText:")]
-		void AddCancelDoneOnKeyboardWithTarget (NSObject target, Selector cancelAction, Selector doneAction, string titleText);
+		void AddCancelDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector cancelAction, [NullAllowed] Selector doneAction, [NullAllowed] string titleText);
 
-		// -(void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction;
+		// -(void)addCancelDoneOnKeyboardWithTarget:(id _Nullable)target cancelAction:(SEL _Nullable)cancelAction doneAction:(SEL _Nullable)doneAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder;
+		[Export ("addCancelDoneOnKeyboardWithTarget:cancelAction:doneAction:shouldShowPlaceholder:")]
+		void AddCancelDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector cancelAction, [NullAllowed] Selector doneAction, bool shouldShowPlaceholder);
+
+		// -(void)addLeftRightOnKeyboardWithTarget:(id _Nullable)target leftButtonTitle:(NSString * _Nullable)leftButtonTitle rightButtonTitle:(NSString * _Nullable)rightButtonTitle leftButtonAction:(SEL _Nullable)leftButtonAction rightButtonAction:(SEL _Nullable)rightButtonAction;
+		[Export ("addLeftRightOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:leftButtonAction:rightButtonAction:")]
+		void AddLeftRightOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] string leftButtonTitle, [NullAllowed] string rightButtonTitle, [NullAllowed] Selector leftButtonAction, [NullAllowed] Selector rightButtonAction);
+
+		// -(void)addLeftRightOnKeyboardWithTarget:(id _Nullable)target leftButtonTitle:(NSString * _Nullable)leftButtonTitle rightButtonTitle:(NSString * _Nullable)rightButtonTitle leftButtonAction:(SEL _Nullable)leftButtonAction rightButtonAction:(SEL _Nullable)rightButtonAction titleText:(NSString * _Nullable)titleText;
+		[Export ("addLeftRightOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:leftButtonAction:rightButtonAction:titleText:")]
+		void AddLeftRightOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] string leftButtonTitle, [NullAllowed] string rightButtonTitle, [NullAllowed] Selector leftButtonAction, [NullAllowed] Selector rightButtonAction, [NullAllowed] string titleText);
+
+		// -(void)addLeftRightOnKeyboardWithTarget:(id _Nullable)target leftButtonTitle:(NSString * _Nullable)leftButtonTitle rightButtonTitle:(NSString * _Nullable)rightButtonTitle leftButtonAction:(SEL _Nullable)leftButtonAction rightButtonAction:(SEL _Nullable)rightButtonAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder;
+		[Export ("addLeftRightOnKeyboardWithTarget:leftButtonTitle:rightButtonTitle:leftButtonAction:rightButtonAction:shouldShowPlaceholder:")]
+		void AddLeftRightOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] string leftButtonTitle, [NullAllowed] string rightButtonTitle, [NullAllowed] Selector leftButtonAction, [NullAllowed] Selector rightButtonAction, bool shouldShowPlaceholder);
+
+		// -(void)addPreviousNextDoneOnKeyboardWithTarget:(id _Nullable)target previousAction:(SEL _Nullable)previousAction nextAction:(SEL _Nullable)nextAction doneAction:(SEL _Nullable)doneAction;
 		[Export ("addPreviousNextDoneOnKeyboardWithTarget:previousAction:nextAction:doneAction:")]
-		void AddPreviousNextDoneOnKeyboardWithTarget (NSObject target, Selector previousAction, Selector nextAction, Selector doneAction);
+		void AddPreviousNextDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector previousAction, [NullAllowed] Selector nextAction, [NullAllowed] Selector doneAction);
 
-		// -(void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction shouldShowPlaceholder:(BOOL)showPlaceholder;
-		[Export ("addPreviousNextDoneOnKeyboardWithTarget:previousAction:nextAction:doneAction:shouldShowPlaceholder:")]
-		void AddPreviousNextDoneOnKeyboardWithTarget (NSObject target, Selector previousAction, Selector nextAction, Selector doneAction, bool showPlaceholder);
-
-		// -(void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction titleText:(NSString *)titleText;
+		// -(void)addPreviousNextDoneOnKeyboardWithTarget:(id _Nullable)target previousAction:(SEL _Nullable)previousAction nextAction:(SEL _Nullable)nextAction doneAction:(SEL _Nullable)doneAction titleText:(NSString * _Nullable)titleText;
 		[Export ("addPreviousNextDoneOnKeyboardWithTarget:previousAction:nextAction:doneAction:titleText:")]
-		void AddPreviousNextDoneOnKeyboardWithTarget (NSObject target, Selector previousAction, Selector nextAction, Selector doneAction, string titleText);
+		void AddPreviousNextDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector previousAction, [NullAllowed] Selector nextAction, [NullAllowed] Selector doneAction, [NullAllowed] string titleText);
+
+		// -(void)addPreviousNextDoneOnKeyboardWithTarget:(id _Nullable)target previousAction:(SEL _Nullable)previousAction nextAction:(SEL _Nullable)nextAction doneAction:(SEL _Nullable)doneAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder;
+		[Export ("addPreviousNextDoneOnKeyboardWithTarget:previousAction:nextAction:doneAction:shouldShowPlaceholder:")]
+		void AddPreviousNextDoneOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] Selector previousAction, [NullAllowed] Selector nextAction, [NullAllowed] Selector doneAction, bool shouldShowPlaceholder);
+
+		// -(void)addPreviousNextRightOnKeyboardWithTarget:(id _Nullable)target rightButtonTitle:(NSString * _Nullable)rightButtonTitle previousAction:(SEL _Nullable)previousAction nextAction:(SEL _Nullable)nextAction rightButtonAction:(SEL _Nullable)rightButtonAction;
+		[Export ("addPreviousNextRightOnKeyboardWithTarget:rightButtonTitle:previousAction:nextAction:rightButtonAction:")]
+		void AddPreviousNextRightOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] string rightButtonTitle, [NullAllowed] Selector previousAction, [NullAllowed] Selector nextAction, [NullAllowed] Selector rightButtonAction);
+
+		// -(void)addPreviousNextRightOnKeyboardWithTarget:(id _Nullable)target rightButtonTitle:(NSString * _Nullable)rightButtonTitle previousAction:(SEL _Nullable)previousAction nextAction:(SEL _Nullable)nextAction rightButtonAction:(SEL _Nullable)rightButtonAction titleText:(NSString * _Nullable)titleText;
+		[Export ("addPreviousNextRightOnKeyboardWithTarget:rightButtonTitle:previousAction:nextAction:rightButtonAction:titleText:")]
+		void AddPreviousNextRightOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] string rightButtonTitle, [NullAllowed] Selector previousAction, [NullAllowed] Selector nextAction, [NullAllowed] Selector rightButtonAction, [NullAllowed] string titleText);
+
+		// -(void)addPreviousNextRightOnKeyboardWithTarget:(id _Nullable)target rightButtonTitle:(NSString * _Nullable)rightButtonTitle previousAction:(SEL _Nullable)previousAction nextAction:(SEL _Nullable)nextAction rightButtonAction:(SEL _Nullable)rightButtonAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder;
+		[Export ("addPreviousNextRightOnKeyboardWithTarget:rightButtonTitle:previousAction:nextAction:rightButtonAction:shouldShowPlaceholder:")]
+		void AddPreviousNextRightOnKeyboardWithTarget ([NullAllowed] NSObject target, [NullAllowed] string rightButtonTitle, [NullAllowed] Selector previousAction, [NullAllowed] Selector nextAction, [NullAllowed] Selector rightButtonAction, bool shouldShowPlaceholder);
 
 		// -(void)setEnablePrevious:(BOOL)isPreviousEnabled next:(BOOL)isNextEnabled;
 		[Export ("setEnablePrevious:next:")]
 		void SetEnablePrevious (bool isPreviousEnabled, bool isNextEnabled);
 	}
 
-	// @interface IQ_UIWindow_Hierarchy (UIWindow)
-	[Protocol]
-	[BaseType (typeof (UIWindow))]
-	interface IQ_UIWindow_Hierarchy {
+	// @interface Additions (UIViewController)
+	[Category]
+	[BaseType (typeof(UIViewController))]
+	interface UIViewController_Additions
+	{
+		// @property (nonatomic, strong) NSLayoutConstraint * _Nullable IQLayoutGuideConstraint __attribute__((iboutlet));
+		[Static, NullAllowed, Export ("IQLayoutGuideConstraint", ArgumentSemantic.Strong)]
+		NSLayoutConstraint IQLayoutGuideConstraint { get; set; }
+	}
 
-		// @property (readonly, nonatomic, strong) UIViewController * topMostController;
-		[Export ("topMostController", ArgumentSemantic.Retain)]
+	// @interface IQ_UIWindow_Hierarchy (UIWindow)
+	[Category]
+	[BaseType (typeof(UIWindow))]
+	interface UIWindow_IQ_UIWindow_Hierarchy
+	{
+		// @property (readonly, nonatomic, strong) UIViewController * _Nullable topMostController;
+		[Static, NullAllowed, Export ("topMostController", ArgumentSemantic.Strong)]
 		UIViewController TopMostController { get; }
 
-		// @property (readonly, nonatomic, strong) UIViewController * currentViewController;
-		[Export ("currentViewController", ArgumentSemantic.Retain)]
+		// @property (readonly, nonatomic, strong) UIViewController * _Nullable currentViewController;
+		[Static, NullAllowed, Export ("currentViewController", ArgumentSemantic.Strong)]
 		UIViewController CurrentViewController { get; }
 	}
 }

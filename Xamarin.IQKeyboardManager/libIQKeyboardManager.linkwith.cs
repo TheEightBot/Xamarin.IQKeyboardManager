@@ -4,8 +4,8 @@ using Foundation;
 
 [assembly: LinkWith (
 	"libIQKeyboardManager.a", 
-	LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.ArmV7s | LinkTarget.Simulator | LinkTarget.Simulator64, 
+	LinkTarget.ArmV7 | LinkTarget.Arm64 | LinkTarget.Simulator | LinkTarget.Simulator64, 
 //TODO: Why u dumb link only for devices?
-//	SmartLink = true, 
-	ForceLoad = true)]
+	SmartLink = false, 
+	ForceLoad = false)]
 [assembly: LinkerSafe ]
