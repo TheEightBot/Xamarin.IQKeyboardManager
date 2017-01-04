@@ -143,6 +143,7 @@ namespace Xamarin
     [Deprecated(PlatformName.iOS, 7, 0)]
     [BaseType(typeof(UISegmentedControl))]
     [DisableDefaultCtor]
+    [Protocol]
     interface IQSegmentedNextPrevious
     {
 
