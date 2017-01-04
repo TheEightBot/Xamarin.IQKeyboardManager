@@ -4,246 +4,254 @@ using ObjCRuntime;
 using System;
 using CoreGraphics;
 
-namespace Xamarin {
+namespace Xamarin
+{
 
-	// @interface IQBarButtonItem : UIBarButtonItem
-	[BaseType (typeof (UIBarButtonItem))]
-	interface IQBarButtonItem {
+    // @interface IQBarButtonItem : UIBarButtonItem
+    [BaseType(typeof(UIBarButtonItem))]
+    interface IQBarButtonItem
+    {
 
-	}
+    }
 
-	// @interface IQKeyboardManager : NSObject
-	[BaseType (typeof (NSObject))]
-	[DisableDefaultCtor]
-	interface IQKeyboardManager {
+    // @interface IQKeyboardManager : NSObject
+    [BaseType(typeof(NSObject))]
+    [DisableDefaultCtor]
+    interface IQKeyboardManager
+    {
 
-		// @property (assign, nonatomic, getter = isEnabled) BOOL enable;
-		[Export ("enable", ArgumentSemantic.UnsafeUnretained)]
-		bool Enable { [Bind ("isEnabled")] get; set; }
+        // @property (assign, nonatomic, getter = isEnabled) BOOL enable;
+        [Export("enable", ArgumentSemantic.UnsafeUnretained)]
+        bool Enable { [Bind("isEnabled")] get; set; }
 
-		// @property (assign, nonatomic) CGFloat keyboardDistanceFromTextField;
-		[Export ("keyboardDistanceFromTextField", ArgumentSemantic.UnsafeUnretained)]
-		nfloat KeyboardDistanceFromTextField { get; set; }
+        // @property (assign, nonatomic) CGFloat keyboardDistanceFromTextField;
+        [Export("keyboardDistanceFromTextField", ArgumentSemantic.UnsafeUnretained)]
+        nfloat KeyboardDistanceFromTextField { get; set; }
 
-		// @property (assign, nonatomic) BOOL preventShowingBottomBlankSpace;
-		[Export ("preventShowingBottomBlankSpace", ArgumentSemantic.UnsafeUnretained)]
-		bool PreventShowingBottomBlankSpace { get; set; }
+        // @property (assign, nonatomic) BOOL preventShowingBottomBlankSpace;
+        [Export("preventShowingBottomBlankSpace", ArgumentSemantic.UnsafeUnretained)]
+        bool PreventShowingBottomBlankSpace { get; set; }
 
-		// @property (assign, nonatomic, getter = isEnableAutoToolbar) BOOL enableAutoToolbar;
-		[Export ("enableAutoToolbar", ArgumentSemantic.UnsafeUnretained)]
-		bool EnableAutoToolbar { [Bind ("isEnableAutoToolbar")] get; set; }
+        // @property (assign, nonatomic, getter = isEnableAutoToolbar) BOOL enableAutoToolbar;
+        [Export("enableAutoToolbar", ArgumentSemantic.UnsafeUnretained)]
+        bool EnableAutoToolbar { [Bind("isEnableAutoToolbar")] get; set; }
 
-		// @property (assign, nonatomic) IQAutoToolbarManageBehaviour toolbarManageBehaviour;
-		[Export ("toolbarManageBehaviour", ArgumentSemantic.UnsafeUnretained)]
-		IQAutoToolbarManageBehaviour ToolbarManageBehaviour { get; set; }
+        // @property (assign, nonatomic) IQAutoToolbarManageBehaviour toolbarManageBehaviour;
+        [Export("toolbarManageBehaviour", ArgumentSemantic.UnsafeUnretained)]
+        IQAutoToolbarManageBehaviour ToolbarManageBehaviour { get; set; }
 
-		// @property (assign, nonatomic) BOOL shouldToolbarUsesTextFieldTintColor;
-		[Introduced(PlatformName.iOS, 7, 0)]
-		[Export ("shouldToolbarUsesTextFieldTintColor", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldToolbarUsesTextFieldTintColor { get; set; }
+        // @property (assign, nonatomic) BOOL shouldToolbarUsesTextFieldTintColor;
+        [Introduced(PlatformName.iOS, 7, 0)]
+        [Export("shouldToolbarUsesTextFieldTintColor", ArgumentSemantic.UnsafeUnretained)]
+        bool ShouldToolbarUsesTextFieldTintColor { get; set; }
 
-		// @property (assign, nonatomic) BOOL shouldShowTextFieldPlaceholder;
-		[Export ("shouldShowTextFieldPlaceholder", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldShowTextFieldPlaceholder { get; set; }
+        // @property (assign, nonatomic) BOOL shouldShowTextFieldPlaceholder;
+        [Export("shouldShowTextFieldPlaceholder", ArgumentSemantic.UnsafeUnretained)]
+        bool ShouldShowTextFieldPlaceholder { get; set; }
 
-		// @property (nonatomic, strong) UIFont * placeholderFont;
-		[Export ("placeholderFont", ArgumentSemantic.Retain)]
-		UIFont PlaceholderFont { get; set; }
+        // @property (nonatomic, strong) UIFont * placeholderFont;
+        [Export("placeholderFont", ArgumentSemantic.Retain)]
+        UIFont PlaceholderFont { get; set; }
 
-		// @property (assign, nonatomic) BOOL canAdjustTextView;
-		[Export ("canAdjustTextView", ArgumentSemantic.UnsafeUnretained)]
-		bool CanAdjustTextView { get; set; }
+        // @property (assign, nonatomic) BOOL canAdjustTextView;
+        [Export("canAdjustTextView", ArgumentSemantic.UnsafeUnretained)]
+        bool CanAdjustTextView { get; set; }
 
-		// @property (assign, nonatomic) BOOL shouldFixTextViewClip;
-		[Export ("shouldFixTextViewClip", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldFixTextViewClip { get; set; }
+        // @property (assign, nonatomic) BOOL shouldFixTextViewClip;
+        [Export("shouldFixTextViewClip", ArgumentSemantic.UnsafeUnretained)]
+        bool ShouldFixTextViewClip { get; set; }
 
-		// @property (assign, nonatomic) BOOL overrideKeyboardAppearance;
-		[Export ("overrideKeyboardAppearance", ArgumentSemantic.UnsafeUnretained)]
-		bool OverrideKeyboardAppearance { get; set; }
+        // @property (assign, nonatomic) BOOL overrideKeyboardAppearance;
+        [Export("overrideKeyboardAppearance", ArgumentSemantic.UnsafeUnretained)]
+        bool OverrideKeyboardAppearance { get; set; }
 
-		// @property (assign, nonatomic) UIKeyboardAppearance keyboardAppearance;
-		[Export ("keyboardAppearance", ArgumentSemantic.UnsafeUnretained)]
-		UIKeyboardAppearance KeyboardAppearance { get; set; }
+        // @property (assign, nonatomic) UIKeyboardAppearance keyboardAppearance;
+        [Export("keyboardAppearance", ArgumentSemantic.UnsafeUnretained)]
+        UIKeyboardAppearance KeyboardAppearance { get; set; }
 
-		// @property (assign, nonatomic) BOOL shouldResignOnTouchOutside;
-		[Export ("shouldResignOnTouchOutside", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldResignOnTouchOutside { get; set; }
+        // @property (assign, nonatomic) BOOL shouldResignOnTouchOutside;
+        [Export("shouldResignOnTouchOutside", ArgumentSemantic.UnsafeUnretained)]
+        bool ShouldResignOnTouchOutside { get; set; }
 
-		// @property (assign, nonatomic) BOOL shouldPlayInputClicks;
-		[Export ("shouldPlayInputClicks", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldPlayInputClicks { get; set; }
+        // @property (assign, nonatomic) BOOL shouldPlayInputClicks;
+        [Export("shouldPlayInputClicks", ArgumentSemantic.UnsafeUnretained)]
+        bool ShouldPlayInputClicks { get; set; }
 
-		// @property (assign, nonatomic) BOOL shouldAdoptDefaultKeyboardAnimation;
-		[Export ("shouldAdoptDefaultKeyboardAnimation", ArgumentSemantic.UnsafeUnretained)]
-		bool ShouldAdoptDefaultKeyboardAnimation { get; set; }
+        // @property (assign, nonatomic) BOOL shouldAdoptDefaultKeyboardAnimation;
+        [Export("shouldAdoptDefaultKeyboardAnimation", ArgumentSemantic.UnsafeUnretained)]
+        bool ShouldAdoptDefaultKeyboardAnimation { get; set; }
 
-		// +(instancetype)sharedManager;
-		[Static, Export ("sharedManager")]
-		IQKeyboardManager SharedManager { get; }
+        // +(instancetype)sharedManager;
+        [Static, Export("sharedManager")]
+        IQKeyboardManager SharedManager { get; }
 
-		// -(void)resignFirstResponder;
-		[Export ("resignFirstResponder")]
-		void ResignFirstResponder ();
+        // -(void)resignFirstResponder;
+        [Export("resignFirstResponder")]
+        void ResignFirstResponder();
 
-		[Unavailable(PlatformName.iOS)]
-		[Unavailable(PlatformName.MacOSX)]
-		[Static, Export ("new")]
-		IQKeyboardManager New ();
-	}
+        [Unavailable(PlatformName.iOS)]
+        [Unavailable(PlatformName.MacOSX)]
+        [Static, Export("new")]
+        IQKeyboardManager New();
+    }
 
-	// @interface IQKeyboardReturnKeyHandler : NSObject
-	[BaseType (typeof (NSObject))]
-	interface IQKeyboardReturnKeyHandler {
+    // @interface IQKeyboardReturnKeyHandler : NSObject
+    [BaseType(typeof(NSObject))]
+    interface IQKeyboardReturnKeyHandler
+    {
 
-		// -(instancetype)initWithViewController:(UIViewController *)controller;
-		[Export ("initWithViewController:")]
-		IntPtr Constructor (UIViewController controller);
+        // -(instancetype)initWithViewController:(UIViewController *)controller;
+        [Export("initWithViewController:")]
+        IntPtr Constructor(UIViewController controller);
 
-		// @property (nonatomic, weak) id<UITextFieldDelegate,UITextViewDelegate> delegate;
-		[Export ("delegate", ArgumentSemantic.Weak)]
-		[NullAllowed]
-		NSObject WeakDelegate { get; set; }
+        // @property (nonatomic, weak) id<UITextFieldDelegate,UITextViewDelegate> delegate;
+        [Export("delegate", ArgumentSemantic.Weak)]
+        [NullAllowed]
+        NSObject WeakDelegate { get; set; }
 
-		//TODO: Implement
-//		// @property (nonatomic, weak) id<UITextFieldDelegate,UITextViewDelegate> delegate;
-//		[Wrap ("WeakDelegate")]
-//		NSObject<UITextFieldDelegate, UITextViewDelegate> Delegate { get; set; }
-//
-		// @property (assign, nonatomic) IQAutoToolbarManageBehaviour toolbarManageBehaviour;
-		[Export ("toolbarManageBehaviour", ArgumentSemantic.UnsafeUnretained)]
-		IQAutoToolbarManageBehaviour ToolbarManageBehaviour { get; set; }
+        //TODO: Implement
+        //		// @property (nonatomic, weak) id<UITextFieldDelegate,UITextViewDelegate> delegate;
+        //		[Wrap ("WeakDelegate")]
+        //		NSObject<UITextFieldDelegate, UITextViewDelegate> Delegate { get; set; }
+        //
+        // @property (assign, nonatomic) IQAutoToolbarManageBehaviour toolbarManageBehaviour;
+        [Export("toolbarManageBehaviour", ArgumentSemantic.UnsafeUnretained)]
+        IQAutoToolbarManageBehaviour ToolbarManageBehaviour { get; set; }
 
-		// @property (assign, nonatomic) UIReturnKeyType lastTextFieldReturnKeyType;
-		[Export ("lastTextFieldReturnKeyType", ArgumentSemantic.UnsafeUnretained)]
-		UIReturnKeyType LastTextFieldReturnKeyType { get; set; }
+        // @property (assign, nonatomic) UIReturnKeyType lastTextFieldReturnKeyType;
+        [Export("lastTextFieldReturnKeyType", ArgumentSemantic.UnsafeUnretained)]
+        UIReturnKeyType LastTextFieldReturnKeyType { get; set; }
 
-		// -(void)addTextFieldView:(UIView *)textFieldView;
-		[Export ("addTextFieldView:")]
-		void AddTextFieldView (UIView textFieldView);
+        // -(void)addTextFieldView:(UIView *)textFieldView;
+        [Export("addTextFieldView:")]
+        void AddTextFieldView(UIView textFieldView);
 
-		// -(void)removeTextFieldView:(UIView *)textFieldView;
-		[Export ("removeTextFieldView:")]
-		void RemoveTextFieldView (UIView textFieldView);
+        // -(void)removeTextFieldView:(UIView *)textFieldView;
+        [Export("removeTextFieldView:")]
+        void RemoveTextFieldView(UIView textFieldView);
 
-		// -(void)addResponderFromView:(UIView *)view;
-		[Export ("addResponderFromView:")]
-		void AddResponderFromView (UIView view);
+        // -(void)addResponderFromView:(UIView *)view;
+        [Export("addResponderFromView:")]
+        void AddResponderFromView(UIView view);
 
-		// -(void)removeResponderFromView:(UIView *)view;
-		[Export ("removeResponderFromView:")]
-		void RemoveResponderFromView (UIView view);
-	}
+        // -(void)removeResponderFromView:(UIView *)view;
+        [Export("removeResponderFromView:")]
+        void RemoveResponderFromView(UIView view);
+    }
 
-	// @interface IQSegmentedNextPrevious : UISegmentedControl
-	[Deprecated(PlatformName.iOS, 7, 0)]
-	[BaseType (typeof (UISegmentedControl))]
-	[DisableDefaultCtor]
-	interface IQSegmentedNextPrevious {
+    // @interface IQSegmentedNextPrevious : UISegmentedControl
+    [Deprecated(PlatformName.iOS, 7, 0)]
+    [BaseType(typeof(UISegmentedControl))]
+    [DisableDefaultCtor]
+    interface IQSegmentedNextPrevious
+    {
 
-		// -(instancetype)initWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction;
-		[Export ("initWithTarget:previousAction:nextAction:")]
-		IntPtr Constructor (NSObject target, Selector previousAction, Selector nextAction);
+        // -(instancetype)initWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction;
+        [Export("initWithTarget:previousAction:nextAction:")]
+        IntPtr Constructor(NSObject target, Selector previousAction, Selector nextAction);
 
-		// +(instancetype)new;
-		[Unavailable(PlatformName.iOS)]
-		[Unavailable(PlatformName.MacOSX)]
-		[Static, Export ("new")]
-		IQSegmentedNextPrevious New ();
-	}
+        // +(instancetype)new;
+        [Unavailable(PlatformName.iOS)]
+        [Unavailable(PlatformName.MacOSX)]
+        [Static, Export("new")]
+        IQSegmentedNextPrevious New();
+    }
 
-	// @interface IQTextView : UITextView
-	[BaseType (typeof (UITextView))]
-	interface IQTextView {
+    // @interface IQTextView : UITextView
+    [BaseType(typeof(UITextView))]
+    interface IQTextView
+    {
 
-		// @property (copy, nonatomic) NSString * placeholder;
-		[Export ("placeholder")]
-		string Placeholder { get; set; }
-	}
+        // @property (copy, nonatomic) NSString * placeholder;
+        [Export("placeholder")]
+        string Placeholder { get; set; }
+    }
 
-	// @interface IQTitleBarButtonItem : IQBarButtonItem
-	[BaseType (typeof (IQBarButtonItem))]
-	interface IQTitleBarButtonItem {
+    // @interface IQTitleBarButtonItem : IQBarButtonItem
+    [BaseType(typeof(IQBarButtonItem))]
+    interface IQTitleBarButtonItem
+    {
 
-		// -(instancetype)initWithFrame:(CGRect)frame title:(NSString *)title;
-		[Export ("initWithFrame:title:")]
-		IntPtr Constructor (CGRect frame, string title);
+        // -(instancetype)initWithFrame:(CGRect)frame title:(NSString *)title;
+        [Export("initWithFrame:title:")]
+        IntPtr Constructor(CGRect frame, string title);
 
-		// @property (nonatomic, strong) UIFont * font;
-		[Export ("font", ArgumentSemantic.Retain)]
-		UIFont Font { get; set; }
-	}
+        // @property (nonatomic, strong) UIFont * font;
+        [Export("font", ArgumentSemantic.Retain)]
+        UIFont Font { get; set; }
+    }
 
-	// @interface IQToolbar : UIToolbar <UIInputViewAudioFeedback>
-	[BaseType (typeof (UIToolbar))]
-	interface IQToolbar : IUIInputViewAudioFeedback {
+    // @interface IQToolbar : UIToolbar <UIInputViewAudioFeedback>
+    [BaseType(typeof(UIToolbar))]
+    interface IQToolbar : IUIInputViewAudioFeedback
+    {
 
-		// @property (nonatomic, strong) UIFont * titleFont;
-		[Export ("titleFont", ArgumentSemantic.Retain)]
-		UIFont TitleFont { get; set; }
+        // @property (nonatomic, strong) UIFont * titleFont;
+        [Export("titleFont", ArgumentSemantic.Retain)]
+        UIFont TitleFont { get; set; }
 
-		// @property (nonatomic, strong) NSString * title;
-		[Export ("title", ArgumentSemantic.Retain)]
-		string Title { get; set; }
-	}
+        // @property (nonatomic, strong) NSString * title;
+        [Export("title", ArgumentSemantic.Retain)]
+        string Title { get; set; }
+    }
+
 
 	// @interface IQ_UIView_Hierarchy (UIView)
-	[Protocol]
-	[BaseType (typeof (UIView))]
+	[Category, BaseType (typeof (UIView))]
 	interface IQ_UIView_Hierarchy {
 
-		// @property (readonly, nonatomic) BOOL isAskingCanBecomeFirstResponder;
-		[Export ("isAskingCanBecomeFirstResponder")]
-		bool IsAskingCanBecomeFirstResponder { get; }
+        // @property (readonly, nonatomic) BOOL isAskingCanBecomeFirstResponder;
+        [Export("isAskingCanBecomeFirstResponder")]
+        bool IsAskingCanBecomeFirstResponder();
 
-		// @property (readonly, nonatomic, strong) UIViewController * viewController;
-		[Export ("viewController", ArgumentSemantic.Retain)]
-		UIViewController ViewController { get; }
+        // @property (readonly, nonatomic, strong) UIViewController * viewController;
+        [Export("viewController", ArgumentSemantic.Retain)]
+        UIViewController ViewController ();
 
 		// @property (readonly, nonatomic, strong) UIViewController * topMostController;
 		[Export ("topMostController", ArgumentSemantic.Retain)]
-		UIViewController TopMostController { get; }
+		UIViewController TopMostController ();
 
 		// @property (readonly, nonatomic, strong) UIScrollView * superScrollView;
 		[Export ("superScrollView", ArgumentSemantic.Retain)]
-		UIScrollView SuperScrollView { get; }
+		UIScrollView SuperScrollView ();
 
 		// @property (readonly, nonatomic, strong) UITableView * superTableView;
 		[Export ("superTableView", ArgumentSemantic.Retain)]
-		UITableView SuperTableView { get; }
+		UITableView SuperTableView ();
 
 		// @property (readonly, nonatomic, strong) UICollectionView * superCollectionView;
 		[Introduced(PlatformName.iOS, 6, 0)]
 		[Export ("superCollectionView", ArgumentSemantic.Retain)]
-		UICollectionView SuperCollectionView { get; }
+		UICollectionView SuperCollectionView ();
 
 		// @property (readonly, copy, nonatomic) NSArray * responderSiblings;
 		[Export ("responderSiblings", ArgumentSemantic.Copy)]
-		NSObject [] ResponderSiblings { get; }
+		NSObject [] ResponderSiblings ();
 
 		// @property (readonly, copy, nonatomic) NSArray * deepResponderViews;
 		[Export ("deepResponderViews", ArgumentSemantic.Copy)]
-		NSObject [] DeepResponderViews { get; }
+		NSObject [] DeepResponderViews ();
 
-		// @property (readonly, nonatomic, getter = isSearchBarTextField) BOOL searchBarTextField;
-		[Export ("searchBarTextField")]
-		bool SearchBarTextField { [Bind ("isSearchBarTextField")] get; }
+        // @property (readonly, nonatomic, getter = isSearchBarTextField) BOOL searchBarTextField;
+        [Export("isSearchBarTextField")]
+        bool IsSearchBarTextField ();
 
-		// @property (readonly, nonatomic, getter = isAlertViewTextField) BOOL alertViewTextField;
-		[Export ("alertViewTextField")]
-		bool AlertViewTextField { [Bind ("isAlertViewTextField")] get; }
+        // @property (readonly, nonatomic, getter = isAlertViewTextField) BOOL alertViewTextField;
+        [Export("isAlertViewTextField")]
+        bool IsAlertViewTextField ();
 
 		// @property (readonly, copy, nonatomic) NSString * subHierarchy;
 		[Export ("subHierarchy")]
-		string SubHierarchy { get; }
+		string SubHierarchy ();
 
 		// @property (readonly, copy, nonatomic) NSString * superHierarchy;
 		[Export ("superHierarchy")]
-		string SuperHierarchy { get; }
+		string SuperHierarchy ();
 
 		// @property (readonly, copy, nonatomic) NSString * debugHierarchy;
 		[Export ("debugHierarchy")]
-		string DebugHierarchy { get; }
+		string DebugHierarchy ();
 
 		// -(CGAffineTransform)convertTransformToView:(UIView *)toView;
 		[Export ("convertTransformToView:")]
@@ -419,16 +427,16 @@ namespace Xamarin {
 	}
 
 	// @interface IQ_UIWindow_Hierarchy (UIWindow)
-	[Protocol]
+	[Category]
 	[BaseType (typeof (UIWindow))]
 	interface IQ_UIWindow_Hierarchy {
 
-		// @property (readonly, nonatomic, strong) UIViewController * topMostController;
-		[Export ("topMostController", ArgumentSemantic.Retain)]
-		UIViewController TopMostController { get; }
+        // @property (readonly, nonatomic, strong) UIViewController * topMostController;
+        [Export("topMostController", ArgumentSemantic.Retain)]
+        UIViewController TopMostController ();
 
-		// @property (readonly, nonatomic, strong) UIViewController * currentViewController;
-		[Export ("currentViewController", ArgumentSemantic.Retain)]
-		UIViewController CurrentViewController { get; }
+        // @property (readonly, nonatomic, strong) UIViewController * currentViewController;
+        [Export("currentViewController", ArgumentSemantic.Retain)]
+        UIViewController CurrentViewController ();
 	}
 }

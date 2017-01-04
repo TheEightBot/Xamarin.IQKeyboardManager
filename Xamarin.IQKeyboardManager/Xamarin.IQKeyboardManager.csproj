@@ -11,6 +11,8 @@
     <AssemblyName>IQKeyboardManager</AssemblyName>
     <TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,29 +40,15 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="libIQKeyboardManager.a" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="libIQKeyboardManager.linkwith.cs">
-      <DependentUpon>libIQKeyboardManager.a</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\IQKeyboardManager.bundle\" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\IQKeyboardManager.bundle\IQButtonBarArrowLeft%402x.png" />
-    <BundleResource Include="Resources\IQKeyboardManager.bundle\IQButtonBarArrowRight%402x.png" />
-    <BundleResource Include="Resources\IQKeyboardManager.bundle\de.lproj\IQKeyboardManager.strings" />
-    <BundleResource Include="Resources\IQKeyboardManager.bundle\en.lproj\IQKeyboardManager.strings" />
-    <BundleResource Include="Resources\IQKeyboardManager.bundle\es.lproj\IQKeyboardManager.strings" />
-    <BundleResource Include="Resources\IQKeyboardManager.bundle\zh-Hans\IQKeyboardManager.strings" />
-    <BundleResource Include="Resources\IQKeyboardManager.bundle\zh-Hant\IQKeyboardManager.strings" />
+    <NativeReference Include="IQKeyboardManager.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
   </ItemGroup>
 </Project>

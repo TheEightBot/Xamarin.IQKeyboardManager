@@ -150,3 +150,11 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+
+Podfile
+Podfile.lock
+Pods/
+sharpie/
+Binding/
+
+*.nupkg
