@@ -48,7 +48,6 @@
   <ItemGroup>
     <NativeReference Include="IQKeyboardManager.framework">
       <Kind>Framework</Kind>
-      <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
 </Project>
