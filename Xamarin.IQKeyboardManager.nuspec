@@ -12,7 +12,8 @@
     <projectUrl>https://github.com/TheEightBot/Xamarin.IQKeyboardManager</projectUrl>
     <licenseUrl>https://github.com/TheEightBot/Xamarin.IQKeyboardManager/blob/master/LICENSE.md</licenseUrl>
     <iconUrl>https://raw.githubusercontent.com/TheEightBot/Xamarin.IQKeyboardManager/blob/master/icon.png</iconUrl>
-    <tags>IQKeyboardManager, Xamarin, iOS, keyboard</tags>
+    <tags>IQKeyboardManager, keyboard, Xamarin, iOS</tags>
+	<releaseNotes>Updates to sync with IQKeyboardManager 4.0.8</releaseNotes>
   </metadata>
   <files>
     <!-- iOS Unified -->
