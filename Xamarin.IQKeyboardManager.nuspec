@@ -3,7 +3,7 @@
   <metadata>
     <id>Xamarin.IQKeyboardManager</id>
     <title>IQKeyboardManager for Xamarin.iOS</title>
-    <version>1.1</version>
+    <version>1.2</version>
     <authors>Eight-Bot Inc.</authors>
     <owners>Eight-Bot Inc.</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,7 +13,7 @@
     <licenseUrl>https://github.com/TheEightBot/Xamarin.IQKeyboardManager/blob/master/LICENSE.md</licenseUrl>
     <iconUrl>https://github.com/TheEightBot/Xamarin.IQKeyboardManager/raw/master/icon.png</iconUrl>
     <tags>IQKeyboardManager, keyboard, Xamarin, iOS</tags>
-	<releaseNotes>Updates to sync with IQKeyboardManager 4.0.8</releaseNotes>
+	<releaseNotes>Updates to sync with IQKeyboardManager 4.0.9</releaseNotes>
   </metadata>
   <files>
     <!-- iOS Unified -->

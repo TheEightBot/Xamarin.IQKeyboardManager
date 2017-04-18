@@ -30,8 +30,10 @@ namespace IQKeyboardManager.Sample
 			Xamarin.IQKeyboardManager.SharedManager.EnableAutoToolbar = true;
 			Xamarin.IQKeyboardManager.SharedManager.ShouldResignOnTouchOutside = true;
             Xamarin.IQKeyboardManager.SharedManager.ShouldToolbarUsesTextFieldTintColor = true;
-
+            var npac = Xamarin.IQKeyboardManager.SharedManager.ToolbarPreviousNextAllowedClasses;
+            
             var iscbfr = this.View.IsAskingCanBecomeFirstResponder();
+
             var vc = this.View.ViewController();
             var dh = this.View.DebugHierarchy();
             var isAlertView = this.View.IsAlertViewTextField();
