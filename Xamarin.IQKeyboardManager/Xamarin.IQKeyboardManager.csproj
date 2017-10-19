@@ -43,7 +43,7 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 	<ItemGroup>
-		<ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+		<ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<ObjcBindingCoreSource Include="StructsAndEnums.cs" />
