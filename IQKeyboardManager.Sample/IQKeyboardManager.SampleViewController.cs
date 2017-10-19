@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using Foundation;
+using ObjCRuntime;
 using UIKit;
 using Xamarin;
 
@@ -30,9 +31,9 @@ namespace IQKeyboardManager.Sample
 			Xamarin.IQKeyboardManager.SharedManager.EnableAutoToolbar = true;
 			Xamarin.IQKeyboardManager.SharedManager.ShouldResignOnTouchOutside = true;
             Xamarin.IQKeyboardManager.SharedManager.ShouldToolbarUsesTextFieldTintColor = true;
+            Xamarin.IQKeyboardManager.SharedManager.KeyboardDistanceFromTextField = 300f;
+
             var npac = Xamarin.IQKeyboardManager.SharedManager.ToolbarPreviousNextAllowedClasses;
-            
-            var iscbfr = this.View.IsAskingCanBecomeFirstResponder();
 
             var vc = this.View.ViewController();
             var dh = this.View.DebugHierarchy();
@@ -46,7 +47,6 @@ namespace IQKeyboardManager.Sample
 
             if (firstResponder != null)
             {
-                var iscbfr = firstResponder.IsAskingCanBecomeFirstResponder();
                 var vc = firstResponder.ViewController();
                 var dh = firstResponder.DebugHierarchy();
                 var isAlertView = firstResponder.IsAlertViewTextField();
