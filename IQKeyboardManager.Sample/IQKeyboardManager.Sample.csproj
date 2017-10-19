@@ -11,7 +11,7 @@
     <RootNamespace>IQKeyboardManager.Sample</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>IQKeyboardManager.Sample</AssemblyName>
-    <ReleaseVersion>1.2</ReleaseVersion>
+    <ReleaseVersion>1.4.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
