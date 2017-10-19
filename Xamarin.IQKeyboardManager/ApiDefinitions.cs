@@ -260,22 +260,6 @@ namespace Xamarin
         bool SetIgnoreSwitchingByNextPrevious(bool ignoreSwitchingByNextPrevious);
     }
 
-    [Static]
-    partial interface Constants
-    {
-        // extern const CGFloat kIQUseDefaultKeyboardDistance;
-        [Field("kIQUseDefaultKeyboardDistance", "__Internal")]
-        nfloat kIQUseDefaultKeyboardDistance { get; }
-
-        // extern double IQKeyboardManagerVersionNumber;
-        [Field("IQKeyboardManagerVersionNumber", "__Internal")]
-        double IQKeyboardManagerVersionNumber { get; }
-
-        // extern const unsigned char [] IQKeyboardManagerVersionString;
-        [Field("IQKeyboardManagerVersionString", "__Internal")]
-        NSString IQKeyboardManagerVersionString { get; }
-    }
-
     // @interface IQ_UIView_Hierarchy (UIView)
     [Category]
     [BaseType(typeof(UIView))]
