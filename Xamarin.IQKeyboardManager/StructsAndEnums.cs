@@ -1,7 +1,8 @@
 using System;
 using ObjCRuntime;
 
-namespace Xamarin {
+namespace Xamarin
+{
     [Native]
     public enum IQAutoToolbarManageBehaviour : long
     {
@@ -11,7 +12,7 @@ namespace Xamarin {
     }
 
     [Native]
-    public enum IQPreviousNextDisplayMode : long
+    public enum IQPreviousNextDisplayMode : ulong
     {
     	Default,
     	AlwaysHide,
@@ -24,5 +25,13 @@ namespace Xamarin {
     	None,
     	Top,
     	Bottom
+    }
+
+    [Native]
+    public enum IQEnableMode : ulong
+    {
+        Default,
+        Enabled,
+        Disabled
     }
 }

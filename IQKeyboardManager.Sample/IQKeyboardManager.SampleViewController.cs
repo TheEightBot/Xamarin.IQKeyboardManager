@@ -28,17 +28,11 @@ namespace IQKeyboardManager.Sample
 		{
 			base.ViewDidLoad ();
 
-			Xamarin.IQKeyboardManager.SharedManager.EnableAutoToolbar = true;
-			Xamarin.IQKeyboardManager.SharedManager.ShouldResignOnTouchOutside = true;
-            Xamarin.IQKeyboardManager.SharedManager.ShouldToolbarUsesTextFieldTintColor = true;
-            Xamarin.IQKeyboardManager.SharedManager.KeyboardDistanceFromTextField = 300f;
+			Xamarin.IQKeyboardManager.SharedManager().EnableAutoToolbar = true;
+			Xamarin.IQKeyboardManager.SharedManager().ShouldResignOnTouchOutside = true;
+            Xamarin.IQKeyboardManager.SharedManager().ShouldToolbarUsesTextFieldTintColor = true;
+            Xamarin.IQKeyboardManager.SharedManager().KeyboardDistanceFromTextField = 300f;
 
-            var npac = Xamarin.IQKeyboardManager.SharedManager.ToolbarPreviousNextAllowedClasses;
-
-            var vc = this.View.ViewController();
-            var dh = this.View.DebugHierarchy();
-            var isAlertView = this.View.IsAlertViewTextField();
-            var isSearchView = this.View.IsSearchBarTextField();
         }
 
         partial void BtnGetControlType_TouchUpInside(UIButton sender)
@@ -47,10 +41,10 @@ namespace IQKeyboardManager.Sample
 
             if (firstResponder != null)
             {
-                var vc = firstResponder.ViewController();
-                var dh = firstResponder.DebugHierarchy();
-                var isAlertView = firstResponder.IsAlertViewTextField();
-                var isSearchView = firstResponder.IsSearchBarTextField();
+                //var vc = firstResponder.ViewController;
+                //var dh = firstResponder.DebugHierarchy();
+                //var isAlertView = firstResponder.IsAlertViewTextField();
+                //var isSearchView = firstResponder.IsSearchBarTextField();
             }
         }
 
